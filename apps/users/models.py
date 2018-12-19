@@ -8,29 +8,32 @@ from django.db import models
 class UserProfile(AbstractUser):
     nick_name = models.CharField(max_length=50, verbose_name=u'昵称', default="")
     birday = models.DateField(verbose_name='生日', null=True, blank=True)
-    gender = models.CharField(max_length=6, choices=(("male", "男"), ("female", "女")), default="female")
-    address = models.CharField(max_length=100, default="")
-    mobile = models.CharField(max_length=11, null=True, blank=True)
-    image = models.ImageField(upload_to="image/%Y/%m", default="image/default.png", max_length=100)
+    gender = models.CharField(verbose_name="性别", max_length=6, choices=(("male", "男"), ("female", "女")), default="female")
+    address = models.CharField(max_length=100, default="", verbose_name="地址")
+    mobile = models.CharField(max_length=11, null=True, blank=True, verbose_name="手机号码")
+    image = models.ImageField(upload_to="image/%Y/%m", default="image/default.png", max_length=100, verbose_name="头像")
 
     class Meta:
         verbose_name = "用户信息"
         verbose_name_plural = verbose_name
 
-    def __unicode__(self):
+    def __str__(self):
         return self.username
 
 
 class EmailVerifyRecord(models.Model):
     code = models.CharField(max_length=20, verbose_name="验证码")
     email = models.EmailField(max_length=50, verbose_name="邮箱")
-    send_type = models.CharField(choices=(("register", "注册"), ("forget", "找回密码")), max_length=10)
+    send_type = models.CharField(verbose_name="验证码类型", choices=(("register", "注册"), ("forget", "找回密码")), max_length=10)
     # 如果用datetime.now() 加上括号的话就会用EmailVerifyRecord 这个model的默认生成时间作为时间
-    send_time = models.DateTimeField(default=datetime.now)
+    send_time = models.DateTimeField(verbose_name="发送时间", default=datetime.now)
 
     class Meta:
         verbose_name = "邮箱验证码"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '{0}({1})'.format(self.code, self.email)
 
 
 class Banner(models.Model):
