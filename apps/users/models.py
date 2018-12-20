@@ -6,7 +6,7 @@ from django.db import models
 
 # 继承系统定义的默认user表并且拓展
 class UserProfile(AbstractUser):
-    nick_name = models.CharField(max_length=50, verbose_name=u'昵称', default="")
+    nick_name = models.CharField(max_length=50, verbose_name='昵称', default="")
     birday = models.DateField(verbose_name='生日', null=True, blank=True)
     gender = models.CharField(verbose_name="性别", max_length=6, choices=(("male", "男"), ("female", "女")), default="female")
     address = models.CharField(max_length=100, default="", verbose_name="地址")

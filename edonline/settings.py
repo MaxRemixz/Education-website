@@ -32,6 +32,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# 重载变量达到用自定义邮箱登录或者手机号码 填写在里面的函数就是指明登录的账号
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
