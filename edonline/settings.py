@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',
     'crispy_forms',
+    'captcha',
 ]
 # 重载默认的用户表 格式为app.models
 AUTH_USER_MODEL = "users.UserProfile"
@@ -137,8 +138,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+# 当使用{% load staticfiles %} 的时候。如果静态文件夹目录修改了。只需要在下面修改名称就可以修改全局
 STATIC_URL = '/static/'
 # 配置静态文件目录地址
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+EMAIL_HOST = "smtp.163.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "15018225867@163.com"
+EMAIL_HOST_PASSWORD = "lgxsyz941024"
+EMAIL_USE_TLS = False
+EMAIL_FROM = "15018225867@163.com"
