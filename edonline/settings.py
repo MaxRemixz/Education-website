@@ -80,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.media',
             ],
         },
     },
@@ -151,3 +152,7 @@ EMAIL_HOST_USER = "15018225867@163.com"
 EMAIL_HOST_PASSWORD = "lgxsyz941024"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "15018225867@163.com"
+
+# 配置资源文件路径
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
