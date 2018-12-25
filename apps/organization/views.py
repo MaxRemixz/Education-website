@@ -3,6 +3,7 @@ from django.views.generic import View
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import CourseOrg, CityDict
+from .forms import UserAskForm
 
 
 class OrgView(View):
@@ -49,3 +50,11 @@ class OrgView(View):
             "hot_orgs": hot_orgs,
             "sort": sort,
         })
+
+
+class AddUserAskView(View):
+    def get(self, request):
+        userask_form = UserAskForm(request.POST)
+        if userask_form.is_valid():
+            # commit 为true的话就会直接保存到数据库
+            user_ask = userask_form.save(commit=True)
