@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
 
 from .models import CourseOrg, CityDict
 from .forms import UserAskForm
@@ -16,20 +17,20 @@ class OrgView(View):
         # 取出筛选城市
         city_id = request.GET.get('city', "")
         if city_id:
-        	all_orgs = all_orgs.filter(city_id=int(city_id))
+            all_orgs = all_orgs.filter(city_id=int(city_id))
 
         # 类别筛选
         category = request.GET.get('ct', "")
         if category:
-        	all_orgs = all_orgs.filter(category=category)
+            all_orgs = all_orgs.filter(category=category)
 
         # 学习人数 课程数
         sort = request.GET.get('sort', "")
         if sort:
-        	if sort == "students":
-        		all_orgs = all_orgs.order_by("-students")
-        	elif sort == "courses":
-        		all_orgs = all_orgs.order_by("-course_nums")
+            if sort == "students":
+                all_orgs = all_orgs.order_by("-students")
+            elif sort == "courses":
+                all_orgs = all_orgs.order_by("-course_nums")
 
         org_nums = all_orgs.count()
         # 对课程机构进行分页
@@ -53,8 +54,15 @@ class OrgView(View):
 
 
 class AddUserAskView(View):
-    def get(self, request):
+    """
+    用户添加咨询(异步返回数据)
+    """
+    def post(self, request):
         userask_form = UserAskForm(request.POST)
         if userask_form.is_valid():
             # commit 为true的话就会直接保存到数据库
             user_ask = userask_form.save(commit=True)
+            # 通过异步返回数据给页面(ajax)。不要刷新当前页面
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse('{"status":"fail", "msg":"添加出错"}', content_type='application/json')
