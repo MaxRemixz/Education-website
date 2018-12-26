@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from django.db import models
-
 # Create your models here.
 
 
@@ -49,6 +48,7 @@ class Teacher(models.Model):
     click_nums = models.IntegerField(default=0, verbose_name="点击数")
     fav_nums = models.IntegerField(default=0, verbose_name="收藏数")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+    image = models.ImageField(default='', upload_to="teacher/%Y/%m", verbose_name="头像", max_length=100)
 
     class Meta:
         verbose_name = "教师"
