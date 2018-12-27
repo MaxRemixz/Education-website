@@ -31,7 +31,7 @@ class OrgView(View):
         if sort:
             if sort == "students":
                 all_orgs = all_orgs.order_by("-students")
-            elif sort == "courses":
+            elif sort == "hot":
                 all_orgs = all_orgs.order_by("-course_nums")
 
         org_nums = all_orgs.count()
