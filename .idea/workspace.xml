@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f10ba97-d032-4ba0-90bc-d362070c6850" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/courses/migrations/0005_video_url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/courses/migrations/0006_video_learn_times.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/courses/migrations/0007_course_teacher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/courses/migrations/0008_auto_20181229_2340.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/courses/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/courses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/course-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/course-comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course-comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/course-video.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course-video.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,31 +36,31 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1461" />
-          <entry key="py" value="3932" />
+          <entry key="html" value="1543" />
+          <entry key="py" value="4118" />
           <entry key="py@edonline" value="289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CommandLine" value="238" />
-          <entry key="HTML" value="1461" />
+          <entry key="HTML" value="1543" />
           <entry key="PLAIN_TEXT" value="51" />
-          <entry key="Python" value="3932" />
+          <entry key="Python" value="4118" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="26" />
+          <entry key="html" value="28" />
           <entry key="js" value="1" />
-          <entry key="py" value="35" />
+          <entry key="py" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="26" />
+          <entry key="HTML" value="28" />
           <entry key="JavaScript" value="1" />
-          <entry key="Python" value="35" />
+          <entry key="Python" value="38" />
         </counts>
       </usages-collector>
     </session>
@@ -97,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/course-video.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="119" column="75" selection-start-line="119" selection-start-column="75" selection-end-line="119" selection-end-column="75" />
+            <state relative-caret-position="851">
+              <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
               <folding>
                 <element signature="e#964#1924#0#HTML" />
                 <element signature="e#3922#3928#0#HTML" expanded="true" />
@@ -110,14 +105,47 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/course-comment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="360" column="6" selection-start-line="360" selection-start-column="6" selection-end-line="360" selection-end-column="6" />
+              <folding>
+                <element signature="n#div#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/courses/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="83" column="19" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="96" column="40" lean-forward="true" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
+                <marker date="1546102096896" expanded="true" signature="2578:2642" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/operation/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/courses/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="77" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -151,12 +179,15 @@
       <find>current_elem</find>
       <find>status</find>
       <find>collectionbtn</find>
-      <find>id=&quot;main</find>
       <find>开始</find>
       <find>课程公告</find>
       <find>资料</find>
       <find>学习人数</find>
       <find>讲师</find>
+      <find>评</find>
+      <find>评论</find>
+      <find>CourseCommentView</find>
+      <find>id=&quot;main</find>
     </findStrings>
     <replaceStrings>
       <replace>/static/</replace>
@@ -191,11 +222,12 @@
         <option value="$PROJECT_DIR$/edonline/settings.py" />
         <option value="$PROJECT_DIR$/templates/org_base.html" />
         <option value="$PROJECT_DIR$/apps/organization/views.py" />
-        <option value="$PROJECT_DIR$/apps/courses/urls.py" />
         <option value="$PROJECT_DIR$/templates/course-detail.html" />
-        <option value="$PROJECT_DIR$/apps/courses/views.py" />
         <option value="$PROJECT_DIR$/apps/courses/models.py" />
         <option value="$PROJECT_DIR$/templates/course-video.html" />
+        <option value="$PROJECT_DIR$/apps/courses/urls.py" />
+        <option value="$PROJECT_DIR$/apps/courses/views.py" />
+        <option value="$PROJECT_DIR$/templates/course-comment.html" />
       </list>
     </option>
   </component>
@@ -350,14 +382,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.39788198" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26393443" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4180328" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27868852" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -398,13 +429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-125">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/operation/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
@@ -576,39 +600,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/course-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="48" column="120" selection-start-line="48" selection-start-column="120" selection-end-line="48" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/courses/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edonline/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
           <folding>
             <element signature="e#309#318#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/courses/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="83" column="19" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -625,13 +622,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/course-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="48" column="120" selection-start-line="48" selection-start-column="120" selection-end-line="48" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/course-video.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="119" column="75" selection-start-line="119" selection-start-column="75" selection-end-line="119" selection-end-column="75" />
+        <state relative-caret-position="851">
+          <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
           <folding>
             <element signature="e#964#1924#0#HTML" />
             <element signature="e#3922#3928#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/courses/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="77" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/operation/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/courses/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="96" column="40" lean-forward="true" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1546102096896" expanded="true" signature="2578:2642" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/course-comment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="360" column="6" selection-start-line="360" selection-start-column="6" selection-end-line="360" selection-end-column="6" />
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>
