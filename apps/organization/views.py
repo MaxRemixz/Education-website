@@ -4,6 +4,7 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
 
 from .models import CourseOrg, CityDict, Teacher
+from courses.models import Course
 from .forms import UserAskForm
 from courses.models import Course
 from operation.models import UserFavorite
@@ -212,4 +213,34 @@ class TeacherListView(View):
             "teachers_count": teachers_count,
             "sort": sort,
             "sorted_teacher": sorted_teacher,
+        })
+
+
+class TeacherDetailView(View):
+    """
+    讲师详情页
+    """
+    def get(self, request, teacher_id):
+        teacher = Teacher.objects.get(id=int(teacher_id))
+        # 取出该讲师所传授的课程(有两种方法可以取出)
+        # all_courses = teacher.course_set.all()
+        all_courses = Course.objects.filter(teacher=teacher)
+        # 讲师排行榜
+        sorted_teacher = Teacher.objects.all().order_by('-click_nums')[:3]
+
+        # 判断页面收藏按钮的显示方式
+        has_teacher_faved = False
+        if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id=teacher.id):
+            has_teacher_faved = True
+
+        has_org_faved = False
+        if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id=teacher.org.id):
+            has_org_faved = True
+
+        return render(request, 'teacher-detail.html', {
+            "teacher": teacher,
+            "all_courses": all_courses,
+            "sorted_teacher": sorted_teacher,
+            "has_teacher_faved": has_teacher_faved,
+            "has_org_faved": has_org_faved,
         })
