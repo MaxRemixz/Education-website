@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
+from django.db.models import Q
 
 from .models import CourseOrg, CityDict, Teacher
 from courses.models import Course
@@ -14,6 +15,13 @@ class OrgView(View):
     def get(self, request):
         all_orgs = CourseOrg.objects.all()
         all_citys = CityDict.objects.all()
+
+        # 课程搜索 js 代码放在deco-common.js中
+        search_keywords = request.GET.get('keywords', "")
+        if search_keywords:
+            all_orgs = all_orgs.filter(Q(name__icontains=search_keywords)|
+                                       Q(desc__icontains=search_keywords))
+
         # 根据点击数取出最热门的三个课程来进行排序
         hot_orgs = all_orgs.order_by("-click_nums")[:3]
 
@@ -190,6 +198,13 @@ class TeacherListView(View):
     """
     def get(self, request):
         all_teacher = Teacher.objects.all()
+
+        # 课程搜索 js 代码放在deco-common.js中
+        search_keywords = request.GET.get('keywords', "")
+        if search_keywords:
+            all_teacher = all_teacher.filter(Q(name__icontains=search_keywords)|
+                                             Q(work_company__icontains=search_keywords)|
+                                             Q(work_position__icontains=search_keywords))
 
         # 根据点击量进行排序
         sort = request.GET.get('sort', "")

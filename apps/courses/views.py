@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import View
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
+from django.db.models import Q
 
 from .models import Course, CourseResource, Video
 from operation.models import UserFavorite, CourseComments, UserCourse
@@ -13,6 +14,13 @@ class CourseListView(View):
         all_courses = Course.objects.all().order_by("-add_time")
 
         hot_courses = Course.objects.all().order_by("-click_nums")[0:3]
+
+        # 课程搜索 js 代码放在deco-common.js中
+        search_keywords = request.GET.get('keywords', "")
+        if search_keywords:
+            all_courses = all_courses.filter(Q(name__icontains=search_keywords)|
+                                             Q(desc__icontains=search_keywords)|
+                                             Q(detail__icontains=search_keywords))
 
         # 课程排序
         sort = request.GET.get('sort', "")
