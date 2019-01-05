@@ -10,6 +10,7 @@ from django.http import HttpResponse
 
 from .models import UserProfile, EmailVerifyRecord
 from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UploadImageForm
+from .forms import UserInfoForm
 from utils.email_send import send_register_email
 from utils.mixin_utils import LoginRequiredMixin
 
@@ -163,6 +164,16 @@ class UserinfoView(LoginRequiredMixin, View):
     """
     def get(self, request):
         return render(request, 'usercenter-info.html', {})
+
+    def post(self, request):
+        # 这个表单是添加新数据 而是修改旧数据 所以需要指明一个对象的实例。方便保存
+        # 如果不指明实例。默认会增加一个新的数据
+        user_info_form = UserInfoForm(request.POST, instance=request.user)
+        if user_info_form.is_valid():
+            user_info_form.save()
+            return HttpResponse('{"status": "success"}', content_type='application/json')
+        else:
+            return HttpResponse(json.dumps(user_info_form.errors), content_type='application/json')
 
 
 class UploadImageView(LoginRequiredMixin, View):
