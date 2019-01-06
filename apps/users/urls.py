@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 
 from .views import UserinfoView, UploadImageView, UpdatePwdView, SendEmailCodeView, UpdateEmailView
-
+from .views import MyCourseView
 
 urlpatterns = [
 	# 用户信息
@@ -18,4 +18,7 @@ urlpatterns = [
 
 	# 验证邮箱验证码 并 修改邮箱
 	url(r'^update_email/$', UpdateEmailView.as_view(), name="update_email"),
+
+	# 我的课程展示
+	url(r'^mycourse/$', MyCourseView.as_view(), name="mycourse"),
 ]
