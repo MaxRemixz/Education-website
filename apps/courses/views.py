@@ -89,7 +89,8 @@ class CourseInfoView(LoginRequiredMixin, View):
 
     def get(self, request, course_id):
         course = Course.objects.get(id=int(course_id))
-
+        course.students += 1
+        course.save()
         # 查询用户是否已经关联了该课程
         user_studyed = UserCourse.objects.filter(user=request.user, course=course)
         # 如果不存在那么保存关联关系
