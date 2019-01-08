@@ -23,7 +23,7 @@ import xadmin
 from users.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetView, ModifyPwdView
 from users.views import LogoutView, IndexView
 from organization.views import OrgView
-from edonline.settings import MEDIA_ROOT
+from edonline.settings import MEDIA_ROOT, STATIC_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -49,6 +49,13 @@ urlpatterns = [
     # 配置上传文件的访问处理函数
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 
+    # 配置上传文件的访问处理函数
+    url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
+
     # 个人信息
     url(r'^users/', include('users.urls', namespace="users")),
 ]
+
+# 全局404, 500页面配置
+handler404 = 'users.views.page_not_found'
+handler500 = 'users.views.page_error'
