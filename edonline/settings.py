@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'captcha',
     'pure_pagination',
+    'DjangoUeditor',
 ]
 # 重载默认的用户表 格式为app.models
 AUTH_USER_MODEL = "users.UserProfile"

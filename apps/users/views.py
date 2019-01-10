@@ -18,7 +18,7 @@ from utils.email_send import send_register_email
 from utils.mixin_utils import LoginRequiredMixin
 from operation.models import UserCourse, UserFavorite, UserMessage
 from organization.models import CourseOrg, Teacher
-from courses.models import Course
+from courses.models import Course, BannerCourse
 
 
 class CustomBackend(ModelBackend):
@@ -374,7 +374,7 @@ class IndexView(View):
         # 取出轮播图
         all_banners = Banner.objects.all().order_by('index')
         courses = Course.objects.filter(is_banner=False)[:6]
-        banner_courses = Course.objects.filter(is_banner=True)[:3]
+        banner_courses = BannerCourse.objects.filter(is_banner=True)[:3]
         course_orgs = CourseOrg.objects.all()[:15]
         return render(request, "index.html", {
             "all_banners": all_banners,
