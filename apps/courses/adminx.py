@@ -1,5 +1,15 @@
-from .models import Course, Lesson, Video, CourseResource
+from .models import Course, Lesson, Video, CourseResource, BannerCourse
 import xadmin
+
+
+class LessonInline(object):
+	model = Lesson
+	extra = 0
+
+
+class CourseResourceInline(object):
+	model = CourseResource
+	extra = 0
 
 
 class CourseAdmin(object):
@@ -10,6 +20,29 @@ class CourseAdmin(object):
 	# readonly_fields是只读字段。exclude是隐藏该字段。两个互相冲突
 	readonly_fields = ['click_nums', 'fav_nums']
 	# exclude = ['fav_nums']
+	inlines = [LessonInline, CourseResourceInline]
+
+	def queryset(self):
+		qs = super(CourseAdmin, self).queryset()
+		qs = qs.filter(is_banner=False)
+		return qs
+
+
+class BannerCourseAdmin(object):
+	list_display = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums', 'add_time']
+	search_fields = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums']
+	list_filter = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums', 'add_time']
+	ordering = ['-students']
+	# readonly_fields是只读字段。exclude是隐藏该字段。两个互相冲突
+	readonly_fields = ['click_nums', 'fav_nums']
+	# exclude = ['fav_nums']
+	inlines = [LessonInline, CourseResourceInline]
+
+
+	def queryset(self):
+		qs = super(BannerCourseAdmin, self).queryset()
+		qs = qs.filter(is_banner=True)
+		return qs
 
 
 class LessonAdmin(object):
@@ -31,6 +64,7 @@ class CourseResourceAdmin(object):
 
 
 xadmin.site.register(Course, CourseAdmin)
+xadmin.site.register(BannerCourse, BannerCourseAdmin)
 xadmin.site.register(Lesson, LessonAdmin)
 xadmin.site.register(Video, VideoAdmin)
 xadmin.site.register(CourseResource, CourseResourceAdmin)

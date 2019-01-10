@@ -44,6 +44,13 @@ class Course(models.Model):
         return self.name
 
 
+class BannerCourse(Course):
+    class Meta:
+        verbose_name = "轮播课程"
+        verbose_name_plural = verbose_name
+        proxy = True     
+
+
 class Lesson(models.Model):
     course = models.ForeignKey(Course, verbose_name="课程")
     name = models.CharField(max_length=100, verbose_name="章节名")
