@@ -10,8 +10,10 @@ class CityDictAdmin(object):
 
 class CourseOrgAdmin(object):
 	list_display = ['name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city', 'add_time']
-	search_fields = ['name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city']
+	search_fields = ['name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city__name']
 	list_filter = ['name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city', 'add_time']
+	# 当有一个model是以外键的形式指向它的时候。是以一种ajax的方式来加载完成的
+	relfield_style = 'fk-ajax'
 
 
 class TeacherAdmin(object):

@@ -6,6 +6,10 @@ class CourseAdmin(object):
 	list_display = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums', 'add_time']
 	search_fields = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums']
 	list_filter = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums', 'add_time']
+	ordering = ['-students']
+	# readonly_fields是只读字段。exclude是隐藏该字段。两个互相冲突
+	readonly_fields = ['click_nums', 'fav_nums']
+	# exclude = ['fav_nums']
 
 
 class LessonAdmin(object):
