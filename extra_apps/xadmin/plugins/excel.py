@@ -1,5 +1,3 @@
-# coding:utf-8
-
 import xadmin
 from xadmin.views import BaseAdminPlugin, ListAdminView
 from django.template import loader
