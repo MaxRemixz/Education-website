@@ -89,7 +89,7 @@ class OrgHomeView(View):
         course_org.click_nums += 1
         course_org.save()
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         # classname_set 自动内置反向取出数据的方法
@@ -112,7 +112,7 @@ class OrgCourseView(View):
         current_page = "course"
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         # classname_set 自动内置反向取出数据的方法
@@ -133,7 +133,7 @@ class OrgDescView(View):
         current_page = "desc"
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         # classname_set 自动内置反向取出数据的方法
@@ -152,7 +152,7 @@ class OrgTeacherView(View):
         current_page = "teacher"
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         # classname_set 自动内置反向取出数据的方法
@@ -174,7 +174,7 @@ class AddFavView(View):
         fav_type = request.POST.get('fav_type', 0)
 
         # 判断用户是否登录
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             return HttpResponse('{"status": "fail", "msg": "用户未登录"}', content_type='application/json')
 
         exist_records = UserFavorite.objects.filter(user=request.user, fav_id=int(fav_id), fav_type=int(fav_type))

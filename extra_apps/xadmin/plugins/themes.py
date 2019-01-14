@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 from __future__ import print_function
 import httplib2
 from django.template import loader
@@ -9,13 +9,12 @@ from xadmin.sites import site
 from xadmin.models import UserSettings
 from xadmin.views import BaseAdminPlugin, BaseAdminView
 from xadmin.util import static, json
-import six
 import requests
+import six
 if six.PY2:
     import urllib
 else:
     import urllib.parse
-
 
 THEME_CACHE_KEY = 'xadmin_themes'
 
@@ -60,7 +59,7 @@ class ThemePlugin(BaseAdminPlugin):
         themes = [
             {'name': _(u"Default"), 'description': _(u"Default bootstrap theme"), 'css': self.default_theme},
             {'name': _(u"Bootstrap2"), 'description': _(u"Bootstrap 2.x theme"), 'css': self.bootstrap2_theme},
-            ]
+        ]
         select_css = context.get('site_theme', self.default_theme)
 
         if self.user_themes:
